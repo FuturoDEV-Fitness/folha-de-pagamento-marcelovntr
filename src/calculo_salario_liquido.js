@@ -1,6 +1,6 @@
 
 
-function calcularLiquido(salarioBruto) {
+function calcularLiquido(salarioBruto, inssFinal, impostoFinal) {
   salarioLiquido = salarioBruto - (inssFinal + impostoFinal);
 
   return salarioLiquido;
