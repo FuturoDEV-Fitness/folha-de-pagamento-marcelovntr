@@ -1,4 +1,4 @@
-function calcularImpostoRenda(){
+function calcularImpostoRenda(salarioBruto){
 
 let imposto = 0;
 
