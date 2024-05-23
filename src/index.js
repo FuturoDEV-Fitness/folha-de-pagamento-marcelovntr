@@ -5,6 +5,10 @@ const calcularLiquido = require("./calculo_salario_liquido");
 const readline = require("readline");
 const input = readline.createInterface(process.stdin, process.stdout);
 
+
+const PdfDocument = require("pdfkit");
+const fs = require("fs");
+
 nome = "";
 cpf = "";
 mes = 0;
@@ -48,8 +52,30 @@ input.question("Qual o nome do funcionário?", (nomeIn) => {
         console.log(`Imposto de Renda: ${impostoFinal}`);
         console.log(`Salário Líquido: ${liquidoFinal}`);
 
+        input.question("Deseja gerar documento em PDF?", (opcao) => {
+          if (opcao.toLowerCase() === "sim") {
+            const doc = new PdfDocument();
+            doc.pipe(fs.createWriteStream("valores.pdf"));
+            doc.fontSize(12);
+
+            doc.text("--Folha de Pagamento--");
+            doc.text(`Nome: ${nome}`);
+            doc.text(`CPF: ${cpf}`);
+            doc.text('---//---')
+            doc.text("Salário Bruto: ", salarioBruto);
+            doc.text('---//---')
+            doc.text(`INSS: ${inssFinal}`);
+            doc.text(`Imposto de Renda: ${impostoFinal}`);
+            doc.text('---//---')
+            doc.text(`Salário Líquido: ${liquidoFinal}`);
+
+            doc.end();
+            input.close();
+          }
+        
         input.close();
       });
     });
   });
+});
 });
