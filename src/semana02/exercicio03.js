@@ -19,10 +19,3 @@ function agruparPorCategoria(produtos) {
 }
 
 console.log(agruparPorCategoria(produtos));
-/*
-    {
-    eletrônicos: 299.98,
-    livros: 49.98,
-    roupas: 49.99
-    }
-    */
