@@ -12,3 +12,27 @@ function filtrarAdultos(pessoas) {
     
    
     console.log(filtrarAdultos(pessoas)); 
+
+
+    /***********************/
+    //OUTRAS FORMAS!!!!! 
+    /********************** */
+
+    function filtrarFor(pessoas) {
+        let nomesAdultos = [];
+        for (let i = 0; i < pessoas.length; i++) {
+          if (pessoas[i].idade >= 18) {
+            nomesAdultos.push(pessoas[i].nome);
+          }
+        }
+        return nomesAdultos;
+      }
+
+      function filtrarReduce(pessoas) {
+        return pessoas.reduce((nomes, pessoa) => {
+          if (pessoa.idade >= 18) {
+            nomes.push(pessoa.nome);
+          }
+          return nomes;
+        }, []);
+      }
