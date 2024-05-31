@@ -9,12 +9,12 @@ let produtos = [
 ];
 
 function agruparPorCategoria(produtos) {
-  return produtos.reduce((acc, produto) => {
-    if (!acc[produto.categoria]) {
-      acc[produto.categoria] = 0;
+  return produtos.reduce((total, produto) => {
+    if (!total[produto.categoria]) {
+      total[produto.categoria] = 0;
     }
-    acc[produto.categoria] += produto.preco;
-    return acc;
+    total[produto.categoria] += produto.preco;
+    return total;
   }, {});
 }
 
