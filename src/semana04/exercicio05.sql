@@ -18,3 +18,13 @@ FROM itens_pedidos ip
 RIGHT JOIN produtos p ON ip.produto_id = p.produto_id
 
 ------------------------
+
+SELECT cliente_id, nome, cidade, idade
+FROM clientes
+WHERE cidade = 'São Paulo'
+
+UNION
+
+SELECT cliente_id, nome, cidade, idade
+FROM clientes
+WHERE cidade = 'Rio de Janeiro';
